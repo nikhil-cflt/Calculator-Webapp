@@ -49,3 +49,26 @@ paths:
           description: "A page displaying Hello! World!"
         default:
           description: "unexpected error"
+
+  /calc/add:
+    get:
+      summary: Veryfying API service is responsible.
+      operationId: add
+      tags:
+        - add
+      parameters:
+        - in: query
+          name: first
+          schema:
+            type: integer
+          description: The first number to add
+        - in: query
+          name: second
+          schema:
+            type: integer
+          description: The second number to add
+      responses:
+        '200':
+          description: "Sum of two numbers"
+        default:
+          description: "unexpected error"

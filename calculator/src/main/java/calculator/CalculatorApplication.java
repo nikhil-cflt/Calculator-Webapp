@@ -84,6 +84,9 @@ public class CalculatorApplication extends Application<CalculatorConfiguration> 
         CalculatorConfiguration config = new CalculatorConfiguration(props);
         CalculatorApplication app = new CalculatorApplication(config);
         app.start();
+        System.out.println("Server started, listening on " + app.server.getURI());
+        System.out.println("Example query " + app.server.getURI() + "calc/add?first=1&second=2");
+        System.out.println("SwaggerUI started, listening on " + app.server.getURI() + "openapi/swagger-ui/index.html");
         app.join();;
     }
 
