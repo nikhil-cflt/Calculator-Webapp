@@ -1,0 +1,51 @@
+openapi: 3.0.0
+info:
+  # Basic Markdown works in the top level description, so using it to give some basic guidelines.
+  # Note this is the only "text" that gets the Markdown treatment.
+  description: |
+    ## Confluent Calculator API - Swagger UI
+    ---
+    This tool (SwaggerUI) and the Open API spec file are provided _for development / test
+    purposes only_:
+
+    - **Do _not_ enable in Production.**
+    - **This tool only works with HTTP.**
+
+  version: "1.0"
+  title: CALCULATOR API
+  x-api-id: 9a0c4222-9190-4816-b872-1a9cf002afab
+  x-audience: external-public
+
+# TODO: After SEC-771, restore this and remove leading /security/1.0 from paths
+# servers:
+#   - url: /security/1.0   # Defining a server so we don't have to duplicate "security/1.0" across all the endpoints
+
+tags:
+
+  # Note the order of the tags listed here is what determines the ordering on the
+  #  docs site.
+
+paths:
+  /calc/live:
+    get:
+      summary: Verifying API service is responsible.
+      operationId: live
+      tags:
+        - live
+      responses:
+        '200':
+          description: "A page returning true if server is live"
+        default:
+          description: "unexpected error"
+
+  /calc/ping:
+    get:
+      summary: Verifying API service is responsible.
+      operationId: ping
+      tags:
+        - ping
+      responses:
+        '200':
+          description: "A page displaying Hello! World!"
+        default:
+          description: "unexpected error"
